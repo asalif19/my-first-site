@@ -219,15 +219,7 @@ let fileSha = '';
 // ---- AUTH ----
 document.getElementById('loginBtn').addEventListener('click', e => {
   e.preventDefault();
-  const state = Math.random().toString(36).slice(2);
-  sessionStorage.setItem('oauth_state', state);
-  const params = new URLSearchParams({
-    client_id: CLIENT_ID,
-    redirect_uri: window.location.origin + '/api/callback',
-    scope: 'repo',
-    state
-  });
-  window.location.href = `https://github.com/login/oauth/authorize?${params}`;
+  window.location.href = '/api/auth';
 });
 
 document.getElementById('logoutBtn').addEventListener('click', () => {
