@@ -396,6 +396,12 @@ em {
   margin-top: 0;
 }
 
+.about-single {
+  max-width: 780px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
 .about-image {
   position: sticky;
   top: 120px;
