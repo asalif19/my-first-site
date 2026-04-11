@@ -14,6 +14,7 @@
       min-height: 100vh;
     }
 
+    /* ---- LOGIN ---- */
     .login-screen {
       display: flex;
       flex-direction: column;
@@ -22,17 +23,8 @@
       min-height: 100vh;
       gap: 2rem;
     }
-
-    .login-screen h1 {
-      font-size: 2rem;
-      letter-spacing: 0.15em;
-      font-weight: 400;
-    }
-
-    .login-screen p {
-      color: #666;
-      font-size: 0.9rem;
-    }
+    .login-screen h1 { font-size: 2rem; letter-spacing: 0.15em; font-weight: 400; }
+    .login-screen p { color: #666; font-size: 0.9rem; }
 
     .btn-github {
       display: flex;
@@ -49,131 +41,194 @@
       text-decoration: none;
       transition: background 0.2s;
     }
-
     .btn-github:hover { background: #333; }
+
+    /* ---- LAYOUT ---- */
+    #adminPanel {
+      display: none;
+      height: 100vh;
+      flex-direction: column;
+    }
 
     header {
       background: #1a1a1a;
       color: #f5f0ed;
-      padding: 1.25rem 2.5rem;
+      padding: 0.9rem 1.5rem;
       display: flex;
       justify-content: space-between;
       align-items: center;
+      flex-shrink: 0;
+      z-index: 20;
     }
+    header h1 { font-size: 0.85rem; letter-spacing: 0.2em; font-weight: 400; }
 
-    header h1 { font-size: 1rem; letter-spacing: 0.2em; font-weight: 400; }
+    .header-right { display: flex; gap: 0.75rem; align-items: center; }
+
+    .save-btn {
+      background: #b8975a;
+      color: #fff;
+      border: none;
+      padding: 0.55rem 1.5rem;
+      cursor: pointer;
+      font-size: 0.72rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      transition: background 0.2s;
+    }
+    .save-btn:hover { background: #a07a40; }
+    .save-btn:disabled { background: #999; cursor: not-allowed; }
 
     .logout-btn {
       background: none;
       border: 1px solid rgba(245,240,237,0.3);
       color: #f5f0ed;
-      padding: 0.4rem 1rem;
+      padding: 0.4rem 0.9rem;
       cursor: pointer;
-      font-size: 0.75rem;
+      font-size: 0.7rem;
       letter-spacing: 0.1em;
       text-transform: uppercase;
     }
-
     .logout-btn:hover { border-color: #f5f0ed; }
 
-    .container { max-width: 900px; margin: 0 auto; padding: 3rem 2rem; }
+    .save-status {
+      font-size: 0.72rem;
+      color: rgba(245,240,237,0.5);
+      letter-spacing: 0.05em;
+    }
+    .save-status.dirty { color: #b8975a; }
+    .save-status.saved { color: #7bc47b; }
 
-    .save-bar {
-      position: sticky;
-      top: 0;
+    /* ---- SPLIT PANE ---- */
+    .split-pane {
+      display: grid;
+      grid-template-columns: 420px 1fr;
+      flex: 1;
+      overflow: hidden;
+    }
+
+    /* ---- EDITOR ---- */
+    .editor-pane {
+      overflow-y: auto;
+      border-right: 1px solid #ddd;
       background: #f5f0ed;
-      border-bottom: 1px solid #ddd;
-      padding: 1rem 2rem;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      z-index: 10;
     }
-
-    .save-bar span { font-size: 0.8rem; color: #888; letter-spacing: 0.05em; }
-
-    .save-btn {
-      background: #1a1a1a;
-      color: #f5f0ed;
-      border: none;
-      padding: 0.7rem 2rem;
-      cursor: pointer;
-      font-size: 0.75rem;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      transition: background 0.2s;
-    }
-
-    .save-btn:hover { background: #b8975a; }
-    .save-btn:disabled { background: #999; cursor: not-allowed; }
 
     .section-card {
-      background: white;
-      border: 1px solid #e8e3e0;
-      margin-bottom: 2rem;
+      border-bottom: 1px solid #e0dbd7;
     }
 
     .section-card h2 {
-      background: #1a1a1a;
+      background: #2a2522;
       color: #f5f0ed;
-      padding: 1rem 1.5rem;
-      font-size: 0.75rem;
+      padding: 0.75rem 1.25rem;
+      font-size: 0.68rem;
       letter-spacing: 0.2em;
       text-transform: uppercase;
       font-weight: 400;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      user-select: none;
     }
+    .section-card h2:hover { background: #1a1a1a; }
+    .section-card h2 .arrow { transition: transform 0.2s; font-size: 0.6rem; opacity: 0.6; }
+    .section-card.collapsed h2 .arrow { transform: rotate(-90deg); }
+    .section-card.collapsed .fields { display: none; }
 
-    .fields { padding: 1.5rem; display: flex; flex-direction: column; gap: 1.25rem; }
+    .fields { padding: 1rem 1.25rem; display: flex; flex-direction: column; gap: 1rem; }
 
     label {
       display: flex;
       flex-direction: column;
-      gap: 0.4rem;
-      font-size: 0.75rem;
+      gap: 0.3rem;
+      font-size: 0.68rem;
       letter-spacing: 0.08em;
       text-transform: uppercase;
-      color: #666;
+      color: #888;
     }
 
     input[type="text"], textarea {
       border: 1px solid #ddd;
-      padding: 0.7rem 1rem;
-      font-size: 0.9rem;
+      padding: 0.6rem 0.8rem;
+      font-size: 0.85rem;
       font-family: Georgia, serif;
       color: #1a1a1a;
-      background: #faf9f8;
+      background: white;
       width: 100%;
       transition: border-color 0.2s;
     }
-
     input[type="text"]:focus, textarea:focus {
       outline: none;
       border-color: #b8975a;
-      background: white;
+    }
+    textarea { resize: vertical; min-height: 70px; }
+
+    /* ---- PREVIEW ---- */
+    .preview-pane {
+      overflow: hidden;
+      background: #eee;
+      position: relative;
     }
 
-    textarea { resize: vertical; min-height: 80px; }
-
-    .status {
-      text-align: center;
-      padding: 1rem;
-      font-size: 0.85rem;
-      letter-spacing: 0.05em;
-    }
-
-    .status.success { color: #2d6a2d; background: #e8f5e8; border: 1px solid #c3e6c3; }
-    .status.error   { color: #8b1a1a; background: #fce8e8; border: 1px solid #f5c6c6; }
-
-    #statusMsg { margin: 1rem 2rem; display: none; }
-
-    .loading {
+    .preview-bar {
+      background: #2a2522;
+      color: rgba(245,240,237,0.6);
+      font-size: 0.65rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      padding: 0.5rem 1rem;
       display: flex;
       align-items: center;
-      justify-content: center;
-      min-height: 200px;
-      color: #888;
-      font-size: 0.9rem;
-      letter-spacing: 0.1em;
+      gap: 0.75rem;
+    }
+
+    .preview-bar span { opacity: 0.4; }
+
+    .preview-url {
+      font-family: monospace;
+      font-size: 0.7rem;
+      color: rgba(245,240,237,0.5);
+      flex: 1;
+    }
+
+    .preview-refresh {
+      background: none;
+      border: none;
+      color: rgba(245,240,237,0.5);
+      cursor: pointer;
+      font-size: 0.8rem;
+      padding: 0.2rem 0.4rem;
+      transition: color 0.2s;
+    }
+    .preview-refresh:hover { color: #f5f0ed; }
+
+    #previewFrame {
+      width: 100%;
+      height: calc(100% - 32px);
+      border: none;
+      display: block;
+    }
+
+    /* ---- STATUS TOAST ---- */
+    .toast {
+      position: fixed;
+      bottom: 2rem;
+      left: 50%;
+      transform: translateX(-50%);
+      padding: 0.75rem 2rem;
+      font-size: 0.8rem;
+      letter-spacing: 0.05em;
+      z-index: 100;
+      display: none;
+      white-space: nowrap;
+    }
+    .toast.success { background: #1a1a1a; color: #f5f0ed; }
+    .toast.error   { background: #8b1a1a; color: #fff; }
+
+    .loading {
+      display: flex; align-items: center; justify-content: center;
+      height: 200px; color: #888; font-size: 0.85rem; letter-spacing: 0.1em;
     }
   </style>
 </head>
@@ -190,25 +245,37 @@
 </div>
 
 <!-- ADMIN -->
-<div id="adminPanel" style="display:none">
+<div id="adminPanel">
   <header>
     <h1>NEXTGEN MONEY — ADMIN</h1>
-    <button class="logout-btn" id="logoutBtn">Útskrá</button>
+    <div class="header-right">
+      <span class="save-status" id="saveStatus">Allt vistað</span>
+      <button class="save-btn" id="saveBtn">Vista</button>
+      <button class="logout-btn" id="logoutBtn">Útskrá</button>
+    </div>
   </header>
 
-  <div class="save-bar">
-    <span id="saveStatus">Breytingar vistaðar</span>
-    <button class="save-btn" id="saveBtn">Vista breytingar</button>
-  </div>
+  <div class="split-pane">
+    <!-- LEFT: EDITOR -->
+    <div class="editor-pane" id="formContainer">
+      <div class="loading">Hleður efni...</div>
+    </div>
 
-  <div id="statusMsg"></div>
-  <div class="container" id="formContainer">
-    <div class="loading">Hleður efni...</div>
+    <!-- RIGHT: PREVIEW -->
+    <div class="preview-pane">
+      <div class="preview-bar">
+        <span>FORSKOÐUN</span>
+        <span class="preview-url">nextgen-money.vercel.app</span>
+        <button class="preview-refresh" id="refreshBtn" title="Uppfæra forskoðun">↺</button>
+      </div>
+      <iframe id="previewFrame" src="https://nextgen-money.vercel.app" title="Forskoðun"></iframe>
+    </div>
   </div>
 </div>
 
+<div class="toast" id="toast"></div>
+
 <script>
-const CLIENT_ID = 'Ov23li3LHhzWuGa1Cd9f';
 const REPO = 'asalif19/my-first-site';
 const FILE_PATH = 'nextgen-money/data/content.json';
 
@@ -227,7 +294,10 @@ document.getElementById('logoutBtn').addEventListener('click', () => {
   location.reload();
 });
 
-// Check if coming back from OAuth
+document.getElementById('refreshBtn').addEventListener('click', () => {
+  document.getElementById('previewFrame').src = document.getElementById('previewFrame').src;
+});
+
 const params = new URLSearchParams(location.search);
 if (params.get('token')) {
   sessionStorage.setItem('gh_token', params.get('token'));
@@ -236,17 +306,17 @@ if (params.get('token')) {
 }
 if (params.get('error')) {
   document.querySelector('.login-screen p').textContent = 'Villa: ' + decodeURIComponent(params.get('error'));
-  document.querySelector('.login-screen p').style.color = 'red';
+  document.querySelector('.login-screen p').style.color = '#c0392b';
   history.replaceState({}, '', '/admin');
 }
 
 if (token) {
   document.getElementById('loginScreen').style.display = 'none';
-  document.getElementById('adminPanel').style.display = 'block';
+  document.getElementById('adminPanel').style.display = 'flex';
   loadContent();
 }
 
-// ---- LOAD CONTENT ----
+// ---- LOAD ----
 async function loadContent() {
   try {
     const res = await fetch(`https://api.github.com/repos/${REPO}/contents/${FILE_PATH}`, {
@@ -258,11 +328,11 @@ async function loadContent() {
     contentData = JSON.parse(atob(data.content.replace(/\n/g, '')));
     renderForm();
   } catch (err) {
-    document.getElementById('formContainer').innerHTML = `<div class="status error">Villa: ${err.message}</div>`;
+    document.getElementById('formContainer').innerHTML = `<div class="loading" style="color:red">${err.message}</div>`;
   }
 }
 
-// ---- RENDER FORM ----
+// ---- RENDER ----
 function renderForm() {
   const sections = [
     { key: 'hero', label: 'Hero — Forsíða', fields: [
@@ -291,7 +361,7 @@ function renderForm() {
     { key: 'budget', label: 'Budget Plan', fields: [
       { k: 'what_text', label: 'Hvað er budget?', type: 'area' },
       { k: 'why_text', label: 'Af hverju hjálpar budget?', type: 'area' },
-      { k: 'example_income', label: 'Dæmi — Tekjur', type: 'text' },
+      { k: 'example_income', label: 'Tekjur', type: 'text' },
       { k: 'example_needs', label: 'Þarfir (50%)', type: 'text' },
       { k: 'example_wants', label: 'Lyst (30%)', type: 'text' },
       { k: 'example_savings', label: 'Sparnaður (20%)', type: 'text' }
@@ -313,16 +383,19 @@ function renderForm() {
       { k: 'block2_text', label: 'Raunverulegt dæmi', type: 'area' },
       { k: 'block3_text', label: 'Af hverju núna?', type: 'area' },
       { k: 'quote', label: 'Tilvitnun', type: 'area' },
-      { k: 'quote_author', label: 'Höfundur tilvitnunar', type: 'text' }
+      { k: 'quote_author', label: 'Höfundur', type: 'text' }
     ]},
     { key: 'footer', label: 'Footer', fields: [
       { k: 'tagline', label: 'Texti neðst', type: 'text' }
     ]}
   ];
 
-  const html = sections.map(sec => `
-    <div class="section-card">
-      <h2>${sec.label}</h2>
+  document.getElementById('formContainer').innerHTML = sections.map((sec, i) => `
+    <div class="section-card ${i > 0 ? 'collapsed' : ''}">
+      <h2 onclick="toggleSection(this)">
+        ${sec.label}
+        <span class="arrow">▾</span>
+      </h2>
       <div class="fields">
         ${sec.fields.map(f => `
           <label>
@@ -337,22 +410,23 @@ function renderForm() {
     </div>
   `).join('');
 
-  document.getElementById('formContainer').innerHTML = html;
-
-  // Mark as changed when editing
   document.getElementById('formContainer').addEventListener('input', () => {
-    document.getElementById('saveStatus').textContent = 'Óvistaðar breytingar';
-    document.getElementById('saveStatus').style.color = '#b8975a';
+    const s = document.getElementById('saveStatus');
+    s.textContent = 'Óvistaðar breytingar';
+    s.className = 'save-status dirty';
   });
+}
+
+function toggleSection(h2) {
+  h2.parentElement.classList.toggle('collapsed');
 }
 
 // ---- SAVE ----
 document.getElementById('saveBtn').addEventListener('click', async () => {
   const btn = document.getElementById('saveBtn');
   btn.disabled = true;
-  btn.textContent = 'Vista...';
+  btn.textContent = '...';
 
-  // Collect form values
   document.querySelectorAll('[data-section][data-field]').forEach(el => {
     const sec = el.dataset.section;
     const field = el.dataset.field;
@@ -360,48 +434,47 @@ document.getElementById('saveBtn').addEventListener('click', async () => {
     contentData[sec][field] = el.value;
   });
 
-  const body = JSON.stringify({
-    message: 'Update content via admin panel',
-    content: btoa(unescape(encodeURIComponent(JSON.stringify(contentData, null, 2)))),
-    sha: fileSha,
-    branch: 'main'
-  });
-
   try {
     const res = await fetch(`https://api.github.com/repos/${REPO}/contents/${FILE_PATH}`, {
       method: 'PUT',
-      headers: {
-        Authorization: `token ${token}`,
-        'Content-Type': 'application/json'
-      },
-      body
+      headers: { Authorization: `token ${token}`, 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        message: 'Update content via admin panel',
+        content: btoa(unescape(encodeURIComponent(JSON.stringify(contentData, null, 2)))),
+        sha: fileSha,
+        branch: 'main'
+      })
     });
 
-    if (!res.ok) {
-      const err = await res.json();
-      throw new Error(err.message);
-    }
-
+    if (!res.ok) throw new Error((await res.json()).message);
     const data = await res.json();
     fileSha = data.content.sha;
 
-    showStatus('Vistað! Síðan uppfærist á nokkrum sekúndum.', 'success');
-    document.getElementById('saveStatus').textContent = 'Allar breytingar vistaðar';
-    document.getElementById('saveStatus').style.color = '#2d6a2d';
+    const s = document.getElementById('saveStatus');
+    s.textContent = 'Vistað ✓';
+    s.className = 'save-status saved';
+
+    showToast('Vistað! Síðan uppfærist á ~30 sekúndum.', 'success');
+
+    // Refresh preview after 30s
+    setTimeout(() => {
+      document.getElementById('previewFrame').src = 'https://nextgen-money.vercel.app?' + Date.now();
+    }, 30000);
+
   } catch (err) {
-    showStatus('Villa: ' + err.message, 'error');
+    showToast('Villa: ' + err.message, 'error');
   }
 
   btn.disabled = false;
-  btn.textContent = 'Vista breytingar';
+  btn.textContent = 'Vista';
 });
 
-function showStatus(msg, type) {
-  const el = document.getElementById('statusMsg');
-  el.textContent = msg;
-  el.className = `status ${type}`;
-  el.style.display = 'block';
-  setTimeout(() => el.style.display = 'none', 5000);
+function showToast(msg, type) {
+  const t = document.getElementById('toast');
+  t.textContent = msg;
+  t.className = `toast ${type}`;
+  t.style.display = 'block';
+  setTimeout(() => t.style.display = 'none', 5000);
 }
 </script>
 </body>
