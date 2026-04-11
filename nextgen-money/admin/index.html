@@ -4,8 +4,408 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>NextGen Money — Admin</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Georgia', serif;
+      background: #f5f0ed;
+      color: #1a1a1a;
+      min-height: 100vh;
+    }
+
+    .login-screen {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      gap: 2rem;
+    }
+
+    .login-screen h1 {
+      font-size: 2rem;
+      letter-spacing: 0.15em;
+      font-weight: 400;
+    }
+
+    .login-screen p {
+      color: #666;
+      font-size: 0.9rem;
+    }
+
+    .btn-github {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      background: #1a1a1a;
+      color: #f5f0ed;
+      padding: 0.9rem 2rem;
+      border: none;
+      cursor: pointer;
+      font-size: 0.85rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      text-decoration: none;
+      transition: background 0.2s;
+    }
+
+    .btn-github:hover { background: #333; }
+
+    header {
+      background: #1a1a1a;
+      color: #f5f0ed;
+      padding: 1.25rem 2.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    header h1 { font-size: 1rem; letter-spacing: 0.2em; font-weight: 400; }
+
+    .logout-btn {
+      background: none;
+      border: 1px solid rgba(245,240,237,0.3);
+      color: #f5f0ed;
+      padding: 0.4rem 1rem;
+      cursor: pointer;
+      font-size: 0.75rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
+    .logout-btn:hover { border-color: #f5f0ed; }
+
+    .container { max-width: 900px; margin: 0 auto; padding: 3rem 2rem; }
+
+    .save-bar {
+      position: sticky;
+      top: 0;
+      background: #f5f0ed;
+      border-bottom: 1px solid #ddd;
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 10;
+    }
+
+    .save-bar span { font-size: 0.8rem; color: #888; letter-spacing: 0.05em; }
+
+    .save-btn {
+      background: #1a1a1a;
+      color: #f5f0ed;
+      border: none;
+      padding: 0.7rem 2rem;
+      cursor: pointer;
+      font-size: 0.75rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      transition: background 0.2s;
+    }
+
+    .save-btn:hover { background: #b8975a; }
+    .save-btn:disabled { background: #999; cursor: not-allowed; }
+
+    .section-card {
+      background: white;
+      border: 1px solid #e8e3e0;
+      margin-bottom: 2rem;
+    }
+
+    .section-card h2 {
+      background: #1a1a1a;
+      color: #f5f0ed;
+      padding: 1rem 1.5rem;
+      font-size: 0.75rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      font-weight: 400;
+    }
+
+    .fields { padding: 1.5rem; display: flex; flex-direction: column; gap: 1.25rem; }
+
+    label {
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+      font-size: 0.75rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: #666;
+    }
+
+    input[type="text"], textarea {
+      border: 1px solid #ddd;
+      padding: 0.7rem 1rem;
+      font-size: 0.9rem;
+      font-family: Georgia, serif;
+      color: #1a1a1a;
+      background: #faf9f8;
+      width: 100%;
+      transition: border-color 0.2s;
+    }
+
+    input[type="text"]:focus, textarea:focus {
+      outline: none;
+      border-color: #b8975a;
+      background: white;
+    }
+
+    textarea { resize: vertical; min-height: 80px; }
+
+    .status {
+      text-align: center;
+      padding: 1rem;
+      font-size: 0.85rem;
+      letter-spacing: 0.05em;
+    }
+
+    .status.success { color: #2d6a2d; background: #e8f5e8; border: 1px solid #c3e6c3; }
+    .status.error   { color: #8b1a1a; background: #fce8e8; border: 1px solid #f5c6c6; }
+
+    #statusMsg { margin: 1rem 2rem; display: none; }
+
+    .loading {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 200px;
+      color: #888;
+      font-size: 0.9rem;
+      letter-spacing: 0.1em;
+    }
+  </style>
 </head>
 <body>
-  <script src="https://unpkg.com/netlify-cms@2.10.192/dist/netlify-cms.js"></script>
+
+<!-- LOGIN -->
+<div class="login-screen" id="loginScreen">
+  <h1>NEXTGEN MONEY</h1>
+  <p>Admin Panel — Skráðu þig inn til að breyta efni</p>
+  <a class="btn-github" href="#" id="loginBtn">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 21.795 24 17.295 24 12c0-6.63-5.37-12-12-12"/></svg>
+    Skrá inn með GitHub
+  </a>
+</div>
+
+<!-- ADMIN -->
+<div id="adminPanel" style="display:none">
+  <header>
+    <h1>NEXTGEN MONEY — ADMIN</h1>
+    <button class="logout-btn" id="logoutBtn">Útskrá</button>
+  </header>
+
+  <div class="save-bar">
+    <span id="saveStatus">Breytingar vistaðar</span>
+    <button class="save-btn" id="saveBtn">Vista breytingar</button>
+  </div>
+
+  <div id="statusMsg"></div>
+  <div class="container" id="formContainer">
+    <div class="loading">Hleður efni...</div>
+  </div>
+</div>
+
+<script>
+const CLIENT_ID = 'Ov23li3LHhzWuGa1Cd9f';
+const REPO = 'asalif19/my-first-site';
+const FILE_PATH = 'nextgen-money/data/content.json';
+
+let token = sessionStorage.getItem('gh_token');
+let contentData = {};
+let fileSha = '';
+
+// ---- AUTH ----
+document.getElementById('loginBtn').addEventListener('click', e => {
+  e.preventDefault();
+  const state = Math.random().toString(36).slice(2);
+  sessionStorage.setItem('oauth_state', state);
+  const params = new URLSearchParams({
+    client_id: CLIENT_ID,
+    redirect_uri: window.location.origin + '/api/callback',
+    scope: 'repo',
+    state
+  });
+  window.location.href = `https://github.com/login/oauth/authorize?${params}`;
+});
+
+document.getElementById('logoutBtn').addEventListener('click', () => {
+  sessionStorage.removeItem('gh_token');
+  location.reload();
+});
+
+// Check if coming back from OAuth
+const params = new URLSearchParams(location.search);
+if (params.get('token')) {
+  sessionStorage.setItem('gh_token', params.get('token'));
+  token = params.get('token');
+  history.replaceState({}, '', '/admin');
+}
+
+if (token) {
+  document.getElementById('loginScreen').style.display = 'none';
+  document.getElementById('adminPanel').style.display = 'block';
+  loadContent();
+}
+
+// ---- LOAD CONTENT ----
+async function loadContent() {
+  try {
+    const res = await fetch(`https://api.github.com/repos/${REPO}/contents/${FILE_PATH}`, {
+      headers: { Authorization: `token ${token}` }
+    });
+    if (!res.ok) throw new Error('Villa við að sækja efni');
+    const data = await res.json();
+    fileSha = data.sha;
+    contentData = JSON.parse(atob(data.content.replace(/\n/g, '')));
+    renderForm();
+  } catch (err) {
+    document.getElementById('formContainer').innerHTML = `<div class="status error">Villa: ${err.message}</div>`;
+  }
+}
+
+// ---- RENDER FORM ----
+function renderForm() {
+  const sections = [
+    { key: 'hero', label: 'Hero — Forsíða', fields: [
+      { k: 'eyebrow', label: 'Lítill texti', type: 'text' },
+      { k: 'subtitle', label: 'Undirtitill', type: 'text' },
+      { k: 'cta', label: 'Takki texti', type: 'text' }
+    ]},
+    { key: 'about', label: 'Home — Um síðuna', fields: [
+      { k: 'intro', label: 'Kynningartexti', type: 'area' },
+      { k: 'for_whom', label: 'Fyrir hvern?', type: 'area' },
+      { k: 'why_matters', label: 'Af hverju fjármál skipta máli', type: 'area' },
+      { k: 'goal', label: 'Markmið síðunnar', type: 'area' }
+    ]},
+    { key: 'save', label: 'How to Save', fields: [
+      { k: 'card1_title', label: 'Kort 1 — Titill', type: 'text' },
+      { k: 'card1_text', label: 'Kort 1 — Texti', type: 'area' },
+      { k: 'card2_title', label: 'Kort 2 — Titill', type: 'text' },
+      { k: 'card2_text', label: 'Kort 2 — Texti', type: 'area' },
+      { k: 'card3_title', label: 'Kort 3 — Titill', type: 'text' },
+      { k: 'card3_text', label: 'Kort 3 — Texti', type: 'area' },
+      { k: 'card4_title', label: 'Kort 4 — Titill', type: 'text' },
+      { k: 'card4_text', label: 'Kort 4 — Texti', type: 'area' },
+      { k: 'card5_title', label: 'Kort 5 — Titill', type: 'text' },
+      { k: 'card5_text', label: 'Kort 5 — Texti', type: 'area' }
+    ]},
+    { key: 'budget', label: 'Budget Plan', fields: [
+      { k: 'what_text', label: 'Hvað er budget?', type: 'area' },
+      { k: 'why_text', label: 'Af hverju hjálpar budget?', type: 'area' },
+      { k: 'example_income', label: 'Dæmi — Tekjur', type: 'text' },
+      { k: 'example_needs', label: 'Þarfir (50%)', type: 'text' },
+      { k: 'example_wants', label: 'Lyst (30%)', type: 'text' },
+      { k: 'example_savings', label: 'Sparnaður (20%)', type: 'text' }
+    ]},
+    { key: 'tips', label: 'Tips — Ráð', fields: [
+      { k: 'tip1_title', label: 'Ráð 1 — Titill', type: 'text' },
+      { k: 'tip1_text', label: 'Ráð 1 — Texti', type: 'area' },
+      { k: 'tip2_title', label: 'Ráð 2 — Titill', type: 'text' },
+      { k: 'tip2_text', label: 'Ráð 2 — Texti', type: 'area' },
+      { k: 'tip3_title', label: 'Ráð 3 — Titill', type: 'text' },
+      { k: 'tip3_text', label: 'Ráð 3 — Texti', type: 'area' },
+      { k: 'tip4_title', label: 'Ráð 4 — Titill', type: 'text' },
+      { k: 'tip4_text', label: 'Ráð 4 — Texti', type: 'area' },
+      { k: 'tip5_title', label: 'Ráð 5 — Titill', type: 'text' },
+      { k: 'tip5_text', label: 'Ráð 5 — Texti', type: 'area' }
+    ]},
+    { key: 'extra', label: 'Extra', fields: [
+      { k: 'block1_text', label: 'Markhópurinn', type: 'area' },
+      { k: 'block2_text', label: 'Raunverulegt dæmi', type: 'area' },
+      { k: 'block3_text', label: 'Af hverju núna?', type: 'area' },
+      { k: 'quote', label: 'Tilvitnun', type: 'area' },
+      { k: 'quote_author', label: 'Höfundur tilvitnunar', type: 'text' }
+    ]},
+    { key: 'footer', label: 'Footer', fields: [
+      { k: 'tagline', label: 'Texti neðst', type: 'text' }
+    ]}
+  ];
+
+  const html = sections.map(sec => `
+    <div class="section-card">
+      <h2>${sec.label}</h2>
+      <div class="fields">
+        ${sec.fields.map(f => `
+          <label>
+            ${f.label}
+            ${f.type === 'area'
+              ? `<textarea data-section="${sec.key}" data-field="${f.k}">${contentData[sec.key]?.[f.k] || ''}</textarea>`
+              : `<input type="text" data-section="${sec.key}" data-field="${f.k}" value="${(contentData[sec.key]?.[f.k] || '').replace(/"/g, '&quot;')}" />`
+            }
+          </label>
+        `).join('')}
+      </div>
+    </div>
+  `).join('');
+
+  document.getElementById('formContainer').innerHTML = html;
+
+  // Mark as changed when editing
+  document.getElementById('formContainer').addEventListener('input', () => {
+    document.getElementById('saveStatus').textContent = 'Óvistaðar breytingar';
+    document.getElementById('saveStatus').style.color = '#b8975a';
+  });
+}
+
+// ---- SAVE ----
+document.getElementById('saveBtn').addEventListener('click', async () => {
+  const btn = document.getElementById('saveBtn');
+  btn.disabled = true;
+  btn.textContent = 'Vista...';
+
+  // Collect form values
+  document.querySelectorAll('[data-section][data-field]').forEach(el => {
+    const sec = el.dataset.section;
+    const field = el.dataset.field;
+    if (!contentData[sec]) contentData[sec] = {};
+    contentData[sec][field] = el.value;
+  });
+
+  const body = JSON.stringify({
+    message: 'Update content via admin panel',
+    content: btoa(unescape(encodeURIComponent(JSON.stringify(contentData, null, 2)))),
+    sha: fileSha,
+    branch: 'main'
+  });
+
+  try {
+    const res = await fetch(`https://api.github.com/repos/${REPO}/contents/${FILE_PATH}`, {
+      method: 'PUT',
+      headers: {
+        Authorization: `token ${token}`,
+        'Content-Type': 'application/json'
+      },
+      body
+    });
+
+    if (!res.ok) {
+      const err = await res.json();
+      throw new Error(err.message);
+    }
+
+    const data = await res.json();
+    fileSha = data.content.sha;
+
+    showStatus('Vistað! Síðan uppfærist á nokkrum sekúndum.', 'success');
+    document.getElementById('saveStatus').textContent = 'Allar breytingar vistaðar';
+    document.getElementById('saveStatus').style.color = '#2d6a2d';
+  } catch (err) {
+    showStatus('Villa: ' + err.message, 'error');
+  }
+
+  btn.disabled = false;
+  btn.textContent = 'Vista breytingar';
+});
+
+function showStatus(msg, type) {
+  const el = document.getElementById('statusMsg');
+  el.textContent = msg;
+  el.className = `status ${type}`;
+  el.style.display = 'block';
+  setTimeout(() => el.style.display = 'none', 5000);
+}
+</script>
 </body>
 </html>
