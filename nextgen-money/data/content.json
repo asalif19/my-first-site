@@ -1,1 +1,55 @@
-{}
+{
+  "hero": {
+    "eyebrow": "",
+    "subtitle": "",
+    "cta": ""
+  },
+  "about": {
+    "intro": "NextGen Money er nútímaleg fjármálafræðslusíða fyrir ungt fólk sem vill taka stjórn á eigin fjárhag. Hér eru fjármál útskýrð á einfaldan og skýran hátt, svo þú getir byggt upp góða peningahegðun frá byrjun.\n",
+    "for_whom": "",
+    "why_matters": "",
+    "goal": ""
+  },
+  "save": {
+    "card1_title": "",
+    "card1_text": "",
+    "card2_title": "",
+    "card2_text": "",
+    "card3_title": "",
+    "card3_text": "",
+    "card4_title": "",
+    "card4_text": "",
+    "card5_title": "",
+    "card5_text": ""
+  },
+  "budget": {
+    "what_text": "",
+    "why_text": "",
+    "example_income": "",
+    "example_needs": "",
+    "example_wants": "",
+    "example_savings": ""
+  },
+  "tips": {
+    "tip1_title": "",
+    "tip1_text": "",
+    "tip2_title": "",
+    "tip2_text": "",
+    "tip3_title": "",
+    "tip3_text": "",
+    "tip4_title": "",
+    "tip4_text": "",
+    "tip5_title": "",
+    "tip5_text": ""
+  },
+  "extra": {
+    "block1_text": "",
+    "block2_text": "",
+    "block3_text": "",
+    "quote": "",
+    "quote_author": ""
+  },
+  "footer": {
+    "tagline": ""
+  }
+}
