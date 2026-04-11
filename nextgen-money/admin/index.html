@@ -234,6 +234,11 @@ if (params.get('token')) {
   token = params.get('token');
   history.replaceState({}, '', '/admin');
 }
+if (params.get('error')) {
+  document.querySelector('.login-screen p').textContent = 'Villa: ' + decodeURIComponent(params.get('error'));
+  document.querySelector('.login-screen p').style.color = 'red';
+  history.replaceState({}, '', '/admin');
+}
 
 if (token) {
   document.getElementById('loginScreen').style.display = 'none';
