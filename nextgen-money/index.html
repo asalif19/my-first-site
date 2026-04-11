@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="is">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- SEO: Primary -->
+  <title>NextGen Money — Fjármálafræðsla fyrir ungt fólk</title>
+  <meta name="description" content="NextGen Money kennir þér hvernig á að spara, gera fjárhagsáætlun og setja sér fjárhagsleg markmið. Einföld og skýr fjármálafræðsla fyrir ungt fólk og byrjendur á Íslandi." />
+  <meta name="keywords" content="fjármál, sparnaður, budget, fjárhagsáætlun, ungt fólk, peningastjórnun, 50/30/20, pay yourself first, markmið, Ísland" />
+  <meta name="author" content="NextGen Money" />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://nextgen-money.vercel.app/" />
+
+  <!-- SEO: Open Graph (Facebook, LinkedIn) -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://nextgen-money.vercel.app/" />
+  <meta property="og:title" content="NextGen Money — Fjármálafræðsla fyrir ungt fólk" />
+  <meta property="og:description" content="Lærðu að stýra peningum þínum — áður en þeir stýra þér. Sparnaður, budget og markmið á einfældan hátt." />
+  <meta property="og:image" content="https://nextgen-money.vercel.app/images/og-image.jpg" />
+  <meta property="og:locale" content="is_IS" />
+  <meta property="og:site_name" content="NextGen Money" />
+
+  <!-- SEO: Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="NextGen Money — Fjármálafræðsla fyrir ungt fólk" />
+  <meta name="twitter:description" content="Lærðu að stýra peningum þínum — áður en þeir stýra þér." />
+  <meta name="twitter:image" content="https://nextgen-money.vercel.app/images/og-image.jpg" />
+
+  <!-- SEO: Structured Data (JSON-LD) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "EducationalOrganization",
+    "name": "NextGen Money",
+    "url": "https://nextgen-money.vercel.app",
+    "description": "Fjármálafræðslusíða fyrir ungt fólk og byrjendur á Íslandi.",
+    "inLanguage": "is",
+    "audience": {
+      "@type": "Audience",
+      "audienceType": "Ungt fólk, byrjendur í fjármálum"
+    }
+  }
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav class="nav" id="nav">
+    <div class="nav-inner">
+      <a href="#home" class="logo">NEXTGEN MONEY</a>
+      <button class="menu-toggle" id="menuToggle" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#save">How to Save</a></li>
+        <li><a href="#budget">Budget Plan</a></li>
+        <li><a href="#goals">Goals</a></li>
+        <li><a href="#tips">Tips</a></li>
+        <li><a href="#extra">Extra</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- HOME / HERO -->
+  <section id="home" class="hero">
+    <div class="hero-bg">
+      <img src="images/bank.jpg" alt="Klassískt bankabygging" id="heroBgImg" />
+      <div class="hero-overlay"></div>
+    </div>
+    <div class="hero-content">
+      <div class="hero-line top-line"></div>
+      <p class="eyebrow" data-key="hero.eyebrow">Fjármálafræðsla fyrir framtíðina</p>
+      <h1>Next<em>Gen</em><br>Money</h1>
+      <p class="hero-sub" data-key="hero.subtitle">Lærðu að stýra peningum þínum —<br>áður en þeir stýra þér.</p>
+      <a href="#save" class="btn" data-key="hero.cta">Byrjaðu hér</a>
+      <div class="hero-line bottom-line"></div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about" class="section about">
+    <div class="container split">
+      <div class="about-text">
+        <span class="label">01 — Home</span>
+        <h2>Hvað er<br><em>NextGen Money?</em></h2>
+        <p data-key="about.intro">NextGen Money er fjármálafræðslusíða hönnuð sérstaklega fyrir ungt fólk og byrjendur. Hér lærir þú grundvöll fjármála á einfaldan og skiljanlegan hátt — án flókins fagmáls.</p>
+
+        <div class="rule-line"></div>
+
+        <h3>Fyrir hvern?</h3>
+        <p data-key="about.for_whom">Þessi síða er fyrir þig sem ert að byrja ferilinn, fyrst að fá laun, eða vilt einfaldlega skilja betur hvernig á að meðhöndla peninga. Aldur skiptir ekki máli — vilji skiptir máli.</p>
+
+        <div class="rule-line"></div>
+
+        <h3>Af hverju fjármálaskilningur skiptir máli</h3>
+        <p data-key="about.why_matters">Peningastjórnun er ein mikilvægasta lífsfærni sem skólinn kennir okkur ekki. Þeir sem skilja fjármál snemma í lífinu búa til sér grundvöll fyrir frjálsægi og öryggi.</p>
+
+        <div class="rule-line"></div>
+
+        <h3>Markmið síðunnar</h3>
+        <p data-key="about.goal">Að gefa þér hagnýtar og einfaldar leiðbeiningar um sparnað, fjárhagsáætlun og markmið — svo þú getir tekið stjórn á fjárhag þínum í dag.</p>
+      </div>
+      <div class="about-image">
+        <img src="images/coins.jpg" alt="Peningar í vöxt" />
+      </div>
+    </div>
+  </section>
+
+  <!-- HOW TO SAVE -->
+  <section id="save" class="section dark">
+    <div class="container">
+      <span class="label light">02 — How to Save</span>
+      <h2>Hvernig á að<br><em>Spara</em></h2>
+      <div class="cards">
+        <div class="card">
+          <div class="card-num">I</div>
+          <h4 data-key="save.card1_title">Af hverju sparnaður er mikilvægur</h4>
+          <p data-key="save.card1_text">Sparnaður er öryggisnet þitt. Hann gefur þér frelsi til að takast á við óvæntar aðstæður og ná draumum þínum á eigin forsendum.</p>
+        </div>
+        <div class="card">
+          <div class="card-num">II</div>
+          <h4 data-key="save.card2_title">„Pay Yourself First" reglan</h4>
+          <p data-key="save.card2_text">Þegar þú færð laun — greiddu þér fyrst. Settu ákveðið hlutfall á sparnaðarreikning <em>áður</em> en þú greiðir neitt annað. Jafnvel 5–10% gerir gæfumuninn.</p>
+        </div>
+        <div class="card">
+          <div class="card-num">III</div>
+          <h4 data-key="save.card3_title">Setja sér skýr markmið</h4>
+          <p data-key="save.card3_text">„Ég vil spara" er ekki markmið. „Ég vil spara 50.000 kr á 6 mánuðum" er markmið. Nákvæmni skapar árangur.</p>
+        </div>
+        <div class="card">
+          <div class="card-num">IV</div>
+          <h4 data-key="save.card4_title">Hvernig á að byrja</h4>
+          <p data-key="save.card4_text">Opnaðu sérstakan sparnaðarreikning. Settu upp sjálfvirka millifærslu á launadegi. Byrjaðu lítið og auktu smám saman.</p>
+        </div>
+        <div class="card">
+          <div class="card-num">V</div>
+          <h4 data-key="save.card5_title">Algeng mistök</h4>
+          <p data-key="save.card5_text">Óþarfa eyðsla á smávægilegum hlutum, impulskaup og að bera sig saman við aðra eru helstu hindranirnar. Meðvitund er fyrsta skrefið.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BUDGET PLAN -->
+  <section id="budget" class="section budget">
+    <div class="container">
+      <span class="label">03 — Budget Plan</span>
+      <h2>Fjárhagsáætlun —<br><em>Budget Plan</em></h2>
+
+      <div class="budget-top split">
+        <div class="budget-text">
+          <h3>Hvað er budget?</h3>
+          <p data-key="budget.what_text">Budget eða fjárhagsáætlun er einfaldlega áætlun um hvernig þú eyðir peningum þínum. Hún hjálpar þér að sjá hvert peningarnir fara og taka meðvitaðar ákvarðanir.</p>
+          <div class="rule-line"></div>
+          <h3>Af hverju hjálpar budget?</h3>
+          <p data-key="budget.why_text">Með budget ert þú ekki að giska á hvort þú hafir efni á eitthvað — þú veist það. Það dregur úr streitu, kemur í veg fyrir skuldir og hjálpar þér að ná markmiðum þínum.</p>
+        </div>
+        <div class="rule-visual">
+          <h3>50 / 30 / 20 Reglan</h3>
+          <div class="rule-bar">
+            <div class="bar-seg b50">
+              <span class="bar-pct">50%</span>
+              <div>
+                <p class="bar-title">Þarfir</p>
+                <small>Leiga, matur, samgöngur</small>
+              </div>
+            </div>
+            <div class="bar-seg b30">
+              <span class="bar-pct">30%</span>
+              <div>
+                <p class="bar-title">Lyst</p>
+                <small>Skemmtun, veitingastaðir</small>
+              </div>
+            </div>
+            <div class="bar-seg b20">
+              <span class="bar-pct">20%</span>
+              <div>
+                <p class="bar-title">Sparnaður</p>
+                <small>Framtíð, markmið, neyðarsjóður</small>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="example-box">
+        <p class="example-income">Mánaðarlegar tekjur: <strong data-key="budget.example_income">250.000 kr</strong></p>
+        <div class="example-grid">
+          <div class="example-item">
+            <span class="ex-label">Þarfir (50%)</span>
+            <span class="ex-amount" data-key="budget.example_needs">125.000 kr</span>
+            <span class="ex-desc">Húsaleiga, matur, strætó</span>
+          </div>
+          <div class="example-item">
+            <span class="ex-label">Lyst (30%)</span>
+            <span class="ex-amount" data-key="budget.example_wants">75.000 kr</span>
+            <span class="ex-desc">Netflix, veitingastaðir, klær</span>
+          </div>
+          <div class="example-item">
+            <span class="ex-label">Sparnaður (20%)</span>
+            <span class="ex-amount" data-key="budget.example_savings">50.000 kr</span>
+            <span class="ex-desc">Sparisjóður, markmið</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- GOALS -->
+  <section id="goals" class="section dark goals">
+    <div class="container">
+      <span class="label light">04 — Goals</span>
+      <h2>Markmið —<br><em>Kaupa fyrsta bílinn</em></h2>
+
+      <div class="goals-split split">
+        <div class="goals-text">
+          <p class="lead">"Án markmiðs ert þú bara að eyða. Með markmiði ert þú að byggja."</p>
+          <div class="rule-line light"></div>
+          <h3>Hvernig setja raunhæf markmið</h3>
+          <p>Notaðu SMART aðferðina — Specific (nákvæmt), Measurable (mælanlegt), Achievable (náanlegt), Relevant (viðeigandi), Time-bound (tímabundið). Þetta breytir draumum í áætlanir.</p>
+          <div class="rule-line light"></div>
+          <h3>Hvernig halda aga og áhuga</h3>
+          <p>Fylgstu með framvindu mánaðarlega. Settu upp sjálfvirka millifærslu. Fagnið litlum sigrum. Minntum þér á hvers vegna þú byrjaðir.</p>
+        </div>
+        <div class="goals-steps">
+          <div class="step">
+            <div class="step-num">1</div>
+            <div class="step-content">
+              <h4>Ákveðið verð</h4>
+              <p>Kynntu þér bílverð. Við segjum <em>800.000 kr</em>.</p>
+            </div>
+          </div>
+          <div class="step">
+            <div class="step-num">2</div>
+            <div class="step-content">
+              <h4>Tímarammi</h4>
+              <p>Hvenær viltu eiga bílinn? Við segjum <em>2 ár</em>.</p>
+            </div>
+          </div>
+          <div class="step">
+            <div class="step-num">3</div>
+            <div class="step-content">
+              <h4>Mánaðarlegur sparnaður</h4>
+              <p>800.000 ÷ 24 mánuðir = <em>~33.333 kr/mánuð</em></p>
+            </div>
+          </div>
+          <div class="step">
+            <div class="step-num">4</div>
+            <div class="step-content">
+              <h4>Halda aga</h4>
+              <p>Smáar, reglulegar hreyfingar skapa stórar niðurstöður. <em>Samkvæmni slær allt.</em></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TIPS -->
+  <section id="tips" class="section tips">
+    <div class="container">
+      <span class="label">05 — Tips</span>
+      <h2>Gagnleg<br><em>Ráð</em></h2>
+      <div class="tips-grid">
+        <div class="tip">
+          <div class="tip-mark">◆</div>
+          <h4 data-key="tips.tip1_title">Hugsa áður en keypt er</h4>
+          <p data-key="tips.tip1_text">Bíddu 24 klukkustundir áður en þú kaupir eitthvað sem þú þarft ekki strax. Oft hverfur lystin.</p>
+        </div>
+        <div class="tip">
+          <div class="tip-mark">◆</div>
+          <h4 data-key="tips.tip2_title">Forðastu impulskaup</h4>
+          <p data-key="tips.tip2_text">Eftir að þú hefur beðið og vilt enn kaupa — þá kauptu. Ef ekki — sparaðir þú peninga.</p>
+        </div>
+        <div class="tip">
+          <div class="tip-mark">◆</div>
+          <h4 data-key="tips.tip3_title">Berðu saman verð</h4>
+          <p data-key="tips.tip3_text">Notaðu samanburðarsíður. Smá rannsókn getur sparað þér þúsundir króna á ári.</p>
+        </div>
+        <div class="tip">
+          <div class="tip-mark">◆</div>
+          <h4 data-key="tips.tip4_title">Sparaðu reglulega</h4>
+          <p data-key="tips.tip4_text">Samkvæmni slær fjárhæð. 5.000 kr á mánuði í 2 ár eru 120.000 kr. Lítið og reglulegt virkar.</p>
+        </div>
+        <div class="tip">
+          <div class="tip-mark">◆</div>
+          <h4 data-key="tips.tip5_title">Fylgstu með eyðslunni</h4>
+          <p data-key="tips.tip5_text">Notaðu app eða Excel. Þegar þú sérð hvert peningarnir fara — breytist hegðunin sjálfkrafa.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EXTRA -->
+  <section id="extra" class="section dark extra">
+    <div class="container">
+      <span class="label light">06 — Extra</span>
+      <h2>Af hverju<br><em>þetta skiptir máli</em></h2>
+
+      <div class="extra-grid">
+        <div class="extra-block">
+          <h3>Markhópurinn</h3>
+          <p data-key="extra.block1_text">Ungt fólk á aldrinum 16–30 ára sem er að taka fyrstu skrefin í fjárhagslegu sjálfstæði. Fólk sem hefur aldrei fengið formlega fjármálafræðslu en vill læra.</p>
+        </div>
+        <div class="extra-block">
+          <h3>Raunverulegt dæmi</h3>
+          <p data-key="extra.block2_text">Anna, 22 ára, byrjar að spara 15.000 kr á mánuði við 20 ára aldur. Við 30 ára aldur á hún 1.800.000 kr í sparnaði — <em>án þess að hafa gert neitt flókið.</em></p>
+        </div>
+        <div class="extra-block">
+          <h3>Af hverju núna?</h3>
+          <p data-key="extra.block3_text">Tíminn er dýrmætasta auðlindin þín. Hvert ár sem líður án sparnaðar er ár sem þú munt sakna síðar. Byrjaðu í dag — jafnvel lítið.</p>
+        </div>
+      </div>
+
+      <blockquote>
+        <p>"<span data-key="extra.quote">Do not save what is left after spending; instead, spend what is left after saving.</span>"</p>
+        <cite>— <span data-key="extra.quote_author">Warren Buffett</span></cite>
+      </blockquote>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <p class="footer-logo">NEXTGEN MONEY</p>
+      <p data-key="footer.tagline">Fjármálafræðsla fyrir kynslóð framtíðarinnar.</p>
+    </div>
+  </footer>
+
+  <script src="content-loader.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

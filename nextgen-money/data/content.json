@@ -1,0 +1,56 @@
+{
+  "hero": {
+    "eyebrow": "Fjármálafræðsla fyrir framtíðina",
+    "title": "NextGen Money",
+    "subtitle": "Lærðu að stýra peningum þínum — áður en þeir stýra þér.",
+    "cta": "Byrjaðu hér"
+  },
+  "about": {
+    "intro": "NextGen Money er fjármálafræðslusíða hönnuð sérstaklega fyrir ungt fólk og byrjendur. Hér lærir þú grundvöll fjármála á einfaldan og skiljanlegan hátt — án flókins fagmáls.",
+    "for_whom": "Þessi síða er fyrir þig sem ert að byrja ferilinn, fyrst að fá laun, eða vilt einfaldlega skilja betur hvernig á að meðhöndla peninga. Aldur skiptir ekki máli — vilji skiptir máli.",
+    "why_matters": "Peningastjórnun er ein mikilvægasta lífsfærni sem skólinn kennir okkur ekki. Þeir sem skilja fjármál snemma í lífinu búa til sér grundvöll fyrir frjálsægi og öryggi.",
+    "goal": "Að gefa þér hagnýtar og einfaldar leiðbeiningar um sparnað, fjárhagsáætlun og markmið — svo þú getir tekið stjórn á fjárhag þínum í dag."
+  },
+  "save": {
+    "card1_title": "Af hverju sparnaður er mikilvægur",
+    "card1_text": "Sparnaður er öryggisnet þitt. Hann gefur þér frelsi til að takast á við óvæntar aðstæður og ná draumum þínum á eigin forsendum.",
+    "card2_title": "„Pay Yourself First" reglan",
+    "card2_text": "Þegar þú færð laun — greiddu þér fyrst. Settu ákveðið hlutfall á sparnaðarreikning áður en þú greiðir neitt annað. Jafnvel 5–10% gerir gæfumuninn.",
+    "card3_title": "Setja sér skýr markmið",
+    "card3_text": "„Ég vil spara" er ekki markmið. „Ég vil spara 50.000 kr á 6 mánuðum" er markmið. Nákvæmni skapar árangur.",
+    "card4_title": "Hvernig á að byrja",
+    "card4_text": "Opnaðu sérstakan sparnaðarreikning. Settu upp sjálfvirka millifærslu á launadegi. Byrjaðu lítið og auktu smám saman.",
+    "card5_title": "Algeng mistök",
+    "card5_text": "Óþarfa eyðsla á smávægilegum hlutum, impulskaup og að bera sig saman við aðra eru helstu hindranirnar. Meðvitund er fyrsta skrefið."
+  },
+  "budget": {
+    "what_text": "Budget eða fjárhagsáætlun er einfaldlega áætlun um hvernig þú eyðir peningum þínum. Hún hjálpar þér að sjá hvert peningarnir fara og taka meðvitaðar ákvarðanir.",
+    "why_text": "Með budget ert þú ekki að giska á hvort þú hafir efni á eitthvað — þú veist það. Það dregur úr streitu, kemur í veg fyrir skuldir og hjálpar þér að ná markmiðum þínum.",
+    "example_income": "250.000 kr",
+    "example_needs": "125.000 kr",
+    "example_wants": "75.000 kr",
+    "example_savings": "50.000 kr"
+  },
+  "tips": {
+    "tip1_title": "Hugsa áður en keypt er",
+    "tip1_text": "Bíddu 24 klukkustundir áður en þú kaupir eitthvað sem þú þarft ekki strax. Oft hverfur lystin.",
+    "tip2_title": "Forðastu impulskaup",
+    "tip2_text": "Eftir að þú hefur beðið og vilt enn kaupa — þá kauptu. Ef ekki — sparaðir þú peninga.",
+    "tip3_title": "Berðu saman verð",
+    "tip3_text": "Notaðu samanburðarsíður. Smá rannsókn getur sparað þér þúsundir króna á ári.",
+    "tip4_title": "Sparaðu reglulega",
+    "tip4_text": "Samkvæmni slær fjárhæð. 5.000 kr á mánuði í 2 ár eru 120.000 kr. Lítið og reglulegt virkar.",
+    "tip5_title": "Fylgstu með eyðslunni",
+    "tip5_text": "Notaðu app eða Excel. Þegar þú sérð hvert peningarnir fara — breytist hegðunin sjálfkrafa."
+  },
+  "extra": {
+    "block1_text": "Ungt fólk á aldrinum 16–30 ára sem er að taka fyrstu skrefin í fjárhagslegu sjálfstæði. Fólk sem hefur aldrei fengið formlega fjármálafræðslu en vill læra.",
+    "block2_text": "Anna, 22 ára, byrjar að spara 15.000 kr á mánuði við 20 ára aldur. Við 30 ára aldur á hún 1.800.000 kr í sparnaði — án þess að hafa gert neitt flókið.",
+    "block3_text": "Tíminn er dýrmætasta auðlindin þín. Hvert ár sem líður án sparnaðar er ár sem þú munt sakna síðar. Byrjaðu í dag — jafnvel lítið.",
+    "quote": "Do not save what is left after spending; instead, spend what is left after saving.",
+    "quote_author": "Warren Buffett"
+  },
+  "footer": {
+    "tagline": "Fjármálafræðsla fyrir kynslóð framtíðarinnar."
+  }
+}
